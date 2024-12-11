@@ -47,7 +47,7 @@ function App() {
                 formData.append("totalChunks", totalChunks.toString());
                 formData.append("originalName", selectedFile.name);
 
-                fetch("http://localhost:3030/upload", {
+                fetch(`${process.env.REACT_APP_API_SERVER_PROTOCOL}://${process.env.REACT_APP_API_SERVER_NAME}:${process.env.REACT_APP_API_SERVER_PORT}/upload`, {
                     method: "POST",
                     body: formData,
                 })
@@ -97,8 +97,8 @@ function App() {
                 ) : progress === 100 ? (
                     <>
                         <TagAutocomplete setTagValue={setTagValue} fileName={fileName}/>
-                        <Typography variant={"body1"} sx={{ paddingY: "3px" }}>{tagValue}</Typography>
-                        <img src={`http://localhost:3030/image/fileName/${fileName}?${new Date().getTime()}`} alt={`${fileName}`} width={"500px"} />
+                        <Typography variant={"body1"} sx={{ paddingTop: "3px", paddingBottom: "8px" }}>{tagValue}</Typography>
+                        <img src={`${process.env.REACT_APP_API_SERVER_PROTOCOL}://${process.env.REACT_APP_API_SERVER_NAME}:${process.env.REACT_APP_API_SERVER_PORT}/image/fileName/${fileName}?${new Date().getTime()}`} alt={`${fileName}`} width={"500px"} />
                         <Button sx={{borderWidth: 1, border: 1, marginY: 1, height: 50, backgroundColor: BLUE_500, color: "white", borderColor: BLUE_500, width: "100%"}} onClick={handleReset}>Upload another</Button>
                     </>
                 ) : (
