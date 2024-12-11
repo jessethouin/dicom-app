@@ -2,7 +2,6 @@ import React, {ChangeEvent, useState} from "react";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import "./App.css";
 import {Box, Button, styled, Typography} from "@mui/material";
-import { BLUE_500 } from "./utils/constants";
 import TagAutocomplete from "./components/TagAutoComplete";
 
 const VisuallyHiddenInput = styled("input")({
@@ -85,29 +84,29 @@ function App() {
     }
 
     return (
-        <Box sx={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-            <Box sx={{ padding: 2, display: "flex", flexDirection: "column", justifyContent: "space-between", width: "500px", border: "2px solid black", alignItems: "center" }}>
+        <Box className={"main"} >
+            <Box className={"content"}>
                 {progress > 0 && progress < 100 ? (
                     <>
-                        <Box sx={{width: `${progress}%`, height: "50px", backgroundColor: BLUE_500, color: "white", display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center"}}>
-                            <Typography variant={"body1"} sx={{paddingLeft: 2}}>Progress {progress}%</Typography>
+                        <Box sx={{ width: `${progress}%` }} className={"progress-bar"}>
+                            <Typography variant={"body1"} className={"progress-percent"}>Progress {progress}%</Typography>
                         </Box>
                         <Typography variant={"h6"}>{uploadStatus}</Typography>
                     </>
                 ) : progress === 100 ? (
                     <>
                         <TagAutocomplete setTagValue={setTagValue} fileName={fileName}/>
-                        <Typography variant={"body1"} sx={{ paddingTop: "3px", paddingBottom: "8px" }}>{tagValue}</Typography>
+                        <Typography variant={"body1"} className={"tag-value"}>{tagValue}</Typography>
                         <img src={`${process.env.REACT_APP_API_SERVER_PROTOCOL}://${process.env.REACT_APP_API_SERVER_NAME}:${process.env.REACT_APP_API_SERVER_PORT}/image/fileName/${fileName}?${new Date().getTime()}`} alt={`${fileName}`} width={"500px"} />
-                        <Button sx={{borderWidth: 1, border: 1, marginY: 1, height: 50, backgroundColor: BLUE_500, color: "white", borderColor: BLUE_500, width: "100%"}} onClick={handleReset}>Upload another</Button>
+                        <Button onClick={handleReset}>Upload another</Button>
                     </>
                 ) : (
                     <Button
                         component="label"
                         role={undefined}
                         tabIndex={-1}
+                        className={"upload-button"}
                         startIcon={<CloudUploadIcon />}
-                        sx={{borderWidth: 1, border: 1, marginY: 1, height: 50, backgroundColor: BLUE_500, color: "white", borderColor: BLUE_500, width: "100%"}}
                     >
                         Upload DICOM File
                         <VisuallyHiddenInput

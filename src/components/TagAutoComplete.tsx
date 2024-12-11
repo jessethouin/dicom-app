@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import {useTheme} from "@mui/material";
 import {tags} from "../utils/dicomTags";
 import {DICOMTag, TagResponse} from "../utils/types";
-import {BLUE_50} from "../utils/constants";
+import {BLUE_500} from "../utils/constants";
 
 interface TagAutocompleteProps {
     setTagValue: (value: (((prevState: string) => string) | string)) => void,
@@ -49,7 +49,9 @@ export default function TagAutocomplete({setTagValue, fileName}: TagAutocomplete
                     ...theme.typography.body2,
                     padding: "1px 0",
                     height: "100%",
-                    backgroundColor: BLUE_50,
+                    backgroundColor: BLUE_500,
+                    color: "white",
+                    borderRadius: 1,
                     "& input": {
                         padding: "10px 16px",
                         height: "100%",
@@ -67,12 +69,6 @@ export default function TagAutocomplete({setTagValue, fileName}: TagAutocomplete
             renderOption={(optionProps, option) => (
                 <Box
                     component="li"
-                    sx={{
-                        "& > img": {
-                            mr: 1.5,
-                            flexShrink: 0,
-                        },
-                    }}
                     {...optionProps}
                     key={option.Tag}
                 >
