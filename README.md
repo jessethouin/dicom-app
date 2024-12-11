@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+## Welcome to DICOM Viewer
+### Installing the DICOM API
+Before you can run the front end (this React app), you'll need to install and start the backend. 
+These instructions assume you have git and node/npm installed, and your environment is Linux or Mac OS.
+```shell
+git clone https://github.com/jessethouin/dicom.git
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+cd dicom
 
-## Available Scripts
+npm install
 
-In the project directory, you can run:
+npm run build
 
-### `npm start`
+npm run start
+```
+To check that everything is working correctly, open your browser to http://localhost:3030/docs where you'll 
+find the OpenAPI documentation for the DICOM API.
+### Installing and running the DICOM Viewer
+Now that you've got the API up and running, you can install and start this React app.
+```shell
+git clone https://github.com/jessethouin/dicom-app.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+cd dicom-app
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npm install
 
-### `npm test`
+npm run build
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# you may have to run the following command with sudo
 
-### `npm run build`
+npm install -g serve
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+serve -s build
+```
+Open your browser to http://localhost:3000/. Click the button labeled "UPLOAD DICOM FILE" and choose a DICOM image.
+(If you don't have one, you can use the one in the DICOM API project folder located at `dicom/src/tests/IM000001.test`).
+After the image loads, you can choose a DICOM tag from the dropdown to show its value.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### That's it, have fun!
