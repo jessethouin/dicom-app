@@ -25,7 +25,7 @@ export default function TagAutocomplete({setTagValue, fileName}: TagAutocomplete
         const val = value as DICOMTag;
         const {group, element} = parseDICOMTag(val.Tag);
 
-        const resp = await fetch(`http://localhost:3030/tag/fileName/${fileName}/group/${group}/element/${element}`, {method: "GET"});
+        const resp = await fetch(`${process.env.REACT_APP_API_SERVER_PROTOCOL}://${process.env.REACT_APP_API_SERVER_NAME}:${process.env.REACT_APP_API_SERVER_PORT}/tag/fileName/${fileName}/group/${group}/element/${element}`, {method: "GET"});
         const obj: TagResponse = await resp.json();
 
         if (!resp.ok) {
