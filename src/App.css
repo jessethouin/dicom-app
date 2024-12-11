@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --blue-50: #e3f2fd;
+  --blue-500: #2196f3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content {
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  border: 2px solid var(--blue-500);
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--blue-50);
 }
 
-.App-link {
-  color: #61dafb;
+.progress-bar {
+  height: 50px;
+  background-color: var(--blue-500);
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.progress-percent {
+  padding-left: 2px;
+}
+
+& .MuiButtonBase-root.MuiButton-root.upload-button {
+  margin-top: 0;
+}
+
+& .MuiButtonBase-root.MuiButton-root {
+  border-width: 1px solid var(--blue-500);
+  margin-top: 10px;
+  height: 50px;
+  background-color: var(--blue-500);
+  color: var(--white);
+  width: 100%;
+}
+
+& .MuiButtonBase-root.MuiIconButton-root.MuiAutocomplete-popupIndicator {
+  color: var(--white);
+}
+
+.tag-value {
+  /*padding-top: 3px;*/
+  padding-bottom: 10px;
+}
+
+& > img {
+  margin-right: 1.5em;
+  flex-shrink: 0;
 }
